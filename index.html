@@ -1,0 +1,79 @@
+<style>
+.parent{
+    position: relative;
+    top: 10%;
+    left: 40%;
+}
+.t1{
+    width: 420px;
+    height: 420px;
+    background-color: lime;
+    position: absolute;
+    transform: translate(-155px);
+    clip-path:polygon(50% 50%,100% 100%,100% 100%) ;
+    animation: move 5s both linear;
+    border-radius: 500px;
+}
+@keyframes move {
+    0%{
+        clip-path:polygon(50% 50%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%) ;
+    }
+    20%{
+        clip-path:polygon(50% 50%,100% 100%,0% 100%,0% 100%,0% 100%,0% 100%) ;
+    }
+    50%{
+        clip-path: polygon(50% 50%,100% 100%,0% 100%,0% 0%,0% 0%,0% 0%);
+    }
+    70%{
+        clip-path: polygon(50% 50%,100% 100%,0% 100%,0% 0%,100% 0%,100% 0%);
+    }
+    100%{
+        clip-path: polygon(50% 50%,100% 100%,0% 100%,0% 0%,100% 0%,100% 100%);
+    }
+}
+.t2{
+    width: 360px;
+    height: 360px;
+    background-color: #ffffff;
+    position: absolute;
+    right: 55%;
+    top: 6%;
+    border-radius: 500px;
+    color: lime;
+    font-size: 100px;
+    font-weight:bolder;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    box-shadow: inset 12px 16px 20px 0px #797979;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent" style="width:520px; height:520px;">
+        <div class="t1"></div>
+        <div class="t2" id="t2">0%</div>
+    </div> 
+</body>
+</html>
+
+
+
+<script>let porcentage=document.getElementById("t2");
+let counter =0;
+setInterval(() => {
+if(counter ==100){
+clearInterval()
+}else{
+    counter+=1;
+porcentage.innerHTML=`${counter}%`
+}
+}, 49);
+</script>
